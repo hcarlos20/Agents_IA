@@ -1,0 +1,39 @@
+name: Veille quotidienne IA & Cybersécurité
+
+on:
+  schedule:
+    - cron: "0 6 * * *"  # 6h UTC = 7h/8h Paris selon heure d'été/hiver
+  workflow_dispatch: {}   # permet de le déclencher manuellement depuis l'onglet Actions
+
+permissions:
+  contents: write  # nécessaire pour committer state.json
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Lancer le pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python main.py
+
+      - name: Sauvegarder la mémoire et la page web
+        run: |
+          git config user.name "veille-bot"
+          git config user.email "veille-bot@users.noreply.github.com"
+          git add state.json docs/
+          git diff --staged --quiet || git commit -m "chore: mise à jour du briefing du jour"
+          git push

@@ -1,0 +1,21 @@
+services:
+  veille:
+    build: .
+    env_file: .env
+    volumes:
+      # state.json et docs/ doivent persister entre deux runs du conteneur,
+      # sinon la mémoire anti-doublons et l'historique repartiraient de zéro à chaque fois.
+      - ./state.json:/app/state.json
+      - ./docs:/app/docs
+
+  # --- Pour plus tard, sur ton serveur : décommente pour un scheduler intégré ---
+  # au lieu de dépendre de GitHub Actions ou d'un cron système.
+  # scheduler:
+  #   image: mcuadros/ofelia:latest
+  #   depends_on: [veille]
+  #   command: daemon --docker
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #   labels:
+  #     ofelia.job-run.veille.schedule: "0 0 6 * * *"   # tous les jours à 6h
+  #     ofelia.job-run.veille.container: "veille-ia-cybersec-veille-1"
