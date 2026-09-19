@@ -1,12 +1,3 @@
-# Veille quotidienne IA & Cybersécurité
-
-Pipeline à 4 agents qui envoie chaque jour sur Telegram un résumé structuré de
-l'actualité IA et cybersécurité, agrégée depuis plusieurs sources gratuites.
-
-```
-collector.py  →  filter_dedup.py  →  summarizer.py  →  publisher.py
- (Agent 1)         (Agent 2)           (Agent 3)          (Agent 4)
-```
 
 ## Setup
 
@@ -15,7 +6,7 @@ collector.py  →  filter_dedup.py  →  summarizer.py  →  publisher.py
 ```bash
 pip install -r requirements.txt
 
-export ANTHROPIC_API_KEY="sk-ant-..."
+export OPENAI_API_KEY="sk-..."
 export TELEGRAM_BOT_TOKEN="123456:AAE..."
 export TELEGRAM_CHAT_ID="123456789"
 
@@ -38,7 +29,7 @@ python publisher.py       # envoie juste un message de test sur Telegram
    exposer `state.json` et la logique publiquement — même si aucun secret n'y
    est stocké en clair).
 2. Dans **Settings → Secrets and variables → Actions**, ajoute 3 secrets :
-   - `ANTHROPIC_API_KEY`
+   - `OPENAI_API_KEY`
    - `TELEGRAM_BOT_TOKEN`
    - `TELEGRAM_CHAT_ID`
 3. Le workflow `.github/workflows/veille-quotidienne.yml` est déjà configuré
