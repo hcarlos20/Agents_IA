@@ -2,7 +2,7 @@ name: Veille quotidienne IA & Cybersécurité
 
 on:
   schedule:
-    - cron: "0 6 * * *"  # 6h UTC = 7h/8h Paris selon heure d'été/hiver
+    - cron: "0 11 * * *"  # 6h UTC = 7h/8h Paris selon heure d'été/hiver
   workflow_dispatch: {}   # permet de le déclencher manuellement depuis l'onglet Actions
 
 permissions:
