@@ -1,12 +1,5 @@
 {
   "sent_links": {
-    "https://www.theregister.com/software/2026/09/18/kde-turns-30-and-someones-brought-an-ai-native-desktop-proposal/5297282": "2026-09-20T08:45:38.117120+00:00",
-    "https://reclaimthenet.org/spain-blocks-archive-today-and-mirrors": "2026-09-20T08:45:38.117120+00:00",
-    "https://asyncdot.com/blog/chief-of-staff-pattern-orchestrating-claude-code-sessions/": "2026-09-20T08:45:38.117120+00:00",
-    "https://thehackernews.com/2026/09/can-you-prove-new-cve-is-exploitable.html": "2026-09-20T08:45:38.117120+00:00",
-    "https://thehackernews.com/2026/09/identity-visibility-in-2026-foundation.html": "2026-09-20T08:45:38.117120+00:00",
-    "https://laya.convaiinnovations.com/": "2026-09-20T08:45:38.117120+00:00",
-    "https://softwarecrisis.dev/letters/llmentalist/": "2026-09-20T14:24:00.738751+00:00",
     "https://thehackernews.com/2026/09/weekly-recap-cisco-0-day-ai-agent-rce.html": "2026-09-21T16:43:19.839373+00:00",
     "https://thehackernews.com/2026/09/taskstomp-powershell-backdoor-steals.html": "2026-09-21T16:43:19.839373+00:00",
     "https://www.reddit.com/r/MacOSBeta/comments/1vlnf13/workaround_to_avoid_downloading_ai_models_and/": "2026-09-21T16:43:19.839373+00:00",
@@ -46,6 +39,26 @@
     "https://arxiv.org/abs/2609.21181": "2026-09-22T15:18:16.676730+00:00",
     "https://arxiv.org/abs/2609.21192": "2026-09-22T15:18:16.676730+00:00",
     "https://arxiv.org/abs/2609.21208": "2026-09-22T15:18:16.676730+00:00",
-    "https://arxiv.org/abs/2609.21214": "2026-09-22T15:18:16.676730+00:00"
+    "https://arxiv.org/abs/2609.21214": "2026-09-22T15:18:16.676730+00:00",
+    "https://www.cbc.ca/news/canada/montreal/montreal-city-council-police-9.7352920": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/windows-malware-is-built-to-let-up-to.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/compromised-memtensor-packages-deliver.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://stripe.dev/blog/meet-stripes-knowledge-ai-platform": "2026-09-23T15:15:27.551237+00:00",
+    "https://michaelheap.com/i-dont-want-the-details/": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/new-cpanel-flaw-lets-hosting-account_0272795595.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://blog.szypowi.cz/p/claude-code-reads-agents.md-only-when-telemetry-is-on/": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/545-hackers-tested-it-first-now-xranges.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/anthropic-and-openai-models-still.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/exploit-released-for-unpatched-ubuntu.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/f5-patches-critical-big-ip-apm-zero-day.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/chinese-hackers-exploit-chrome-windows.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/critical-nextjs-imageresponse-flaw-can.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://thehackernews.com/2026/09/shinyhunters-claims-fbi-breach-says-it.html": "2026-09-23T15:15:27.551237+00:00",
+    "https://arxiv.org/abs/2609.22161": "2026-09-23T15:15:27.551237+00:00",
+    "https://arxiv.org/abs/2609.22277": "2026-09-23T15:15:27.551237+00:00",
+    "https://arxiv.org/abs/2609.22353": "2026-09-23T15:15:27.551237+00:00",
+    "https://arxiv.org/abs/2609.22408": "2026-09-23T15:15:27.551237+00:00",
+    "https://arxiv.org/abs/2609.22410": "2026-09-23T15:15:27.551237+00:00",
+    "https://arxiv.org/abs/2609.22475": "2026-09-23T15:15:27.551237+00:00"
   }
 }
