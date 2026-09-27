@@ -18,7 +18,7 @@ RSS_SOURCES = {
     "ArXiv cs.CR": "http://export.arxiv.org/rss/cs.CR",
 }
 
-HOURS_WINDOW = 24  # ne garder que les items des dernières 24h
+HOURS_WINDOW = 24 * 7  # run hebdomadaire -> on couvre les 7 derniers jours, pas juste 24h
 
 
 def _parse_entry_date(entry):
@@ -36,6 +36,7 @@ def fetch_rss(source_name, url, cutoff):
         feed = feedparser.parse(url)
         for entry in feed.entries:
             published = _parse_entry_date(entry)
+            # Si pas de date trouvée, on garde quand même (mieux vaut inclure que rater une news)
             if published and published < cutoff:
                 continue
             items.append({
@@ -46,6 +47,7 @@ def fetch_rss(source_name, url, cutoff):
                 "excerpt": (entry.get("summary", "") or "")[:400],
             })
     except Exception as e:
+        # Une source down ne doit jamais faire planter tout le pipeline
         print(f"[collector] Erreur sur la source '{source_name}': {e}")
     return items
 
@@ -58,20 +60,13 @@ def fetch_hackernews_ai_security(cutoff, keywords=None):
     ]
     items = []
     try:
-        # On limite à 25 stories (au lieu de 60) et on réduit le timeout par requête :
-        # avec 60 requêtes séquentielles à 10s de timeout chacune, un run pouvait
-        # traîner jusqu'à 10 minutes si plusieurs requêtes étaient lentes.
         top_ids = requests.get(
-            "https://hacker-news.firebaseio.com/v0/topstories.json", timeout=8
-        ).json()[:25]
-        session = requests.Session()
+            "https://hacker-news.firebaseio.com/v0/topstories.json", timeout=10
+        ).json()[:60]  # on ne regarde que les 60 premières pour économiser les appels
         for story_id in top_ids:
-            try:
-                story = session.get(
-                    f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json", timeout=4
-                ).json()
-            except requests.exceptions.RequestException:
-                continue
+            story = requests.get(
+                f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json", timeout=10
+            ).json()
             if not story or "title" not in story:
                 continue
             title_lower = story["title"].lower()
