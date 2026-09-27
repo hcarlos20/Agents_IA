@@ -2,7 +2,7 @@ name: Veille quotidienne IA & Cybersécurité
 
 on:
   schedule:
-    - cron: "0 11 * * *"  # 6h UTC = 7h/8h Paris selon heure d'été/hiver
+    - cron: "0 10 * * 5"  # Vendredi à 10h UTC = midi Paris (heure d'été actuelle)
   workflow_dispatch: {}   # permet de le déclencher manuellement depuis l'onglet Actions
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
 jobs:
   run-pipeline:
     runs-on: ubuntu-latest
-    timeout-minutes: 5  # sécurité : si jamais ça traîne, GitHub coupe après 5 min au lieu des 6h par défaut
+    timeout-minutes: 5  # sécurité : coupe après 5 min si jamais ça traîne anormalement
     steps:
       - name: Checkout du repo
         uses: actions/checkout@v4
