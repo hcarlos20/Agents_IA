@@ -11,7 +11,7 @@ from datetime import datetime, timedelta, timezone
 
 STATE_FILE = os.path.join(os.path.dirname(__file__), "state.json")
 MEMORY_DAYS = 3       # on évite de re-signaler un item déjà vu dans les 3 derniers jours
-MAX_ITEMS_OUT = 20    # nombre max d'items transmis à l'Agent 3 (résumeur)
+MAX_ITEMS_OUT = 40    # nombre max d'items transmis à l'Agent 3 (relevé pour un cycle hebdomadaire, au lieu de 20 en quotidien)
 
 
 def _load_state():
